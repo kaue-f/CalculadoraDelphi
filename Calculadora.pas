@@ -46,6 +46,15 @@ type
     procedure button0Click(Sender: TObject);
     procedure buttonVirgulaClick(Sender: TObject);
     procedure buttonMaisClick(Sender: TObject);
+    procedure buttonMenosClick(Sender: TObject);
+    procedure buttonMultiClick(Sender: TObject);
+    procedure buttonDivisaoClick(Sender: TObject);
+    procedure buttonIgualClick(Sender: TObject);
+    procedure buttonX2Click(Sender: TObject);
+    procedure buttonPorcetClick(Sender: TObject);
+    procedure buttonCEClick(Sender: TObject);
+    procedure buttonCClick(Sender: TObject);
+    procedure buttonApagarClick(Sender: TObject);
 
   private
     { Private declarations }
@@ -56,6 +65,11 @@ type
     result:Double;
     valorX:Double;
     ValorY:Double;
+    valorMais:string;
+    valorDivisao:string;
+    valorMenos:string;
+    valorMulti:string;
+    valorIgual:char;
   end;
 
 var
@@ -148,37 +162,286 @@ begin
   resultB.Text := valorRB;
 end;
 
+procedure TForm1.buttonApagarClick(Sender: TObject);
+begin
+   if Length(valorRB) > 0 then
+      valorRB := Copy(valorRB, 1, Length(valorRB) - 1);
+
+  valorRB:=valorRB;
+  resultB.Text:=valorRB;
+end;
+
+procedure TForm1.buttonCClick(Sender: TObject);
+begin
+  valorRB:='';
+  resultB.Text:='';
+  valorRA:='';
+  resultA.Text:='';
+  valorX:=0;
+  valorY:=0;
+end;
+
+procedure TForm1.buttonCEClick(Sender: TObject);
+begin
+  valorRB:='';
+  resultB.Text:='';
+end;
+
+procedure TForm1.buttonDivisaoClick(Sender: TObject);
+begin
+  valorDivisao:='÷';
+
+  if AnsiContainsStr(valorRA, '÷') then begin
+       if (valorRB = '') then begin
+          valorRB:= '0';
+       end;
+        valorY:= StrToFloat(valorRB);
+        result:= valorX / ValorY;
+        resultA.Text := result.ToString;
+        resultB.Text := result.ToString;
+        valorRA:= FloatToStr(result);
+        valorRB:='';
+     end
+      else if (valorRB = '') then
+        begin
+            if (valorRA = '') then begin
+              valorRB:= '0';
+              valorX:= StrToFloat(valorRB);
+              valorRA:= valorRB+valorDivisao;
+              resultA.Text:=valorRA;
+              valorRB:='';
+              resultB.Text:='0';
+            end
+              else begin
+                valorRB:= valorRA;
+                valorX:= StrToFloat(valorRB);
+                valorRA:= valorRB+valorDivisao;
+                resultA.Text:=valorRA;
+                valorRB:='';
+                resultB.Text:='0';
+              end;
+        end
+          else
+            begin
+              valorX:= StrToFloat(valorRB);
+              valorRA:= valorRB+valorDivisao;
+              resultA.Text:=valorRA;
+              valorRB:='';
+              resultB.Text:='0';
+            end;
+end;
+
+procedure TForm1.buttonIgualClick(Sender: TObject);
+begin
+  var valorChar:string;
+
+  if (valorRA <> '') then begin
+     valorChar:=copy(valorRA,length(valorRA),1);
+     valorIgual:=valorChar[1];
+  end;
+
+      case valorIgual of
+        '+':buttonMais.Click;
+        '-':buttonMenos.Click;
+        '÷':buttonDivisao.Click;
+        '×':buttonMulti.Click;
+        '%':buttonPorcet.Click;
+      end;
+
+end;
+
 procedure TForm1.buttonMaisClick(Sender: TObject);
 begin
-    var valorMais:string:='+';
+    valorMais:='+';
 
     if AnsiContainsStr(valorRA, '+') then begin
-         valorY:= StrToFloat(valorRB);
-         result:= valorX + ValorY;
-         resultB.Text := result.ToString;
-  //       valorRB:=FloatToStr(valorRB);
-    //     resultA:=valorRA + valorRB;
-    end
-      else
-          valorX:= StrToFloat(valorRB);
-          valorRA:= valorRB+valorMais;
-          resultA.Text:=valorRA;
-          valorRB:='';
-          resultB.Text:='0';
+       if (valorRB = '') then begin
+          valorRB:= '0';
+       end;
+        valorY:= StrToFloat(valorRB);
+        result:= valorX + ValorY;
+        resultA.Text := result.ToString;
+        resultB.Text := result.ToString;
+        valorRA:= FloatToStr(result);
+        valorRB:='';
+     end
+      else if (valorRB = '') then
+        begin
+            if (valorRA = '') then begin
+              valorRB:= '0';
+              valorX:= StrToFloat(valorRB);
+              valorRA:= valorRB+valorMais;
+              resultA.Text:=valorRA;
+              valorRB:='';
+              resultB.Text:='0';
+            end
+              else begin
+                valorRB:= valorRA;
+                valorX:= StrToFloat(valorRB);
+                valorRA:= valorRB+valorMais;
+                resultA.Text:=valorRA;
+                valorRB:='';
+                resultB.Text:='0';
+              end;
+        end
+          else
+            begin
+              valorX:= StrToFloat(valorRB);
+              valorRA:= valorRB+valorMais;
+              resultA.Text:=valorRA;
+              valorRB:='';
+              resultB.Text:='0';
+            end;
 
 end;
 
 procedure TForm1.buttonMaisMenosClick(Sender: TObject);
 begin
   var valorMM:Double:= -1;
-if (valorRB <> '') then begin
-   valorMM:=ValorMM*StrToFloat(valorRB);
-   valorRB:=FloatToStr(valorMM);
-   resultB.Text:=valorRB;
-end
-  else
-   valorRB:= valorRB;
-   resultB.Text:=valorRB;
+  if (valorRB <> '') then begin
+     valorMM:=ValorMM*StrToFloat(valorRB);
+     valorRB:=FloatToStr(valorMM);
+     resultB.Text:=valorRB;
+  end
+    else
+      begin
+        valorRB:= valorRB;
+        resultB.Text:=valorRB;
+      end;
+end;
+
+procedure TForm1.buttonMenosClick(Sender: TObject);
+begin
+  valorMenos:='-';
+
+  if AnsiContainsStr(valorRA, '-') then begin
+         if (valorRB = '') then begin
+          valorRB:= '0';
+       end;
+         valorY:= StrToFloat(valorRB);
+         result:= valorX - ValorY;
+         resultA.Text := result.ToString;
+         resultB.Text := result.ToString;
+         valorRA:= FloatToStr(result);
+         valorRB:='';
+     end
+      else if (valorRB = '') then
+        begin
+            if (valorRA = '') then begin
+              valorRB:= '0';
+              valorX:= StrToFloat(valorRB);
+              valorRA:= valorRB+valorMenos;
+              resultA.Text:=valorRA;
+              valorRB:='';
+              resultB.Text:='0';
+            end
+              else begin
+                valorRB:= valorRA;
+                valorX:= StrToFloat(valorRB);
+                valorRA:= valorRB+valorMenos;
+                resultA.Text:=valorRA;
+                valorRB:='';
+                resultB.Text:='0';
+              end;
+        end
+          else
+            begin
+              valorX:= StrToFloat(valorRB);
+              valorRA:= valorRB+valorMenos;
+              resultA.Text:=valorRA;
+              valorRB:='';
+              resultB.Text:='0';
+            end;
+
+end;
+
+procedure TForm1.buttonMultiClick(Sender: TObject);
+begin
+ valorMulti:='×';
+
+ if AnsiContainsStr(valorRA, '×') then begin
+        if (valorRB = '') then begin
+          valorRB:= '0';
+       end;
+         valorY:= StrToFloat(valorRB);
+         result:= valorX * ValorY;
+         resultA.Text := result.ToString;
+         resultB.Text := result.ToString;
+         valorRA:= FloatToStr(result);
+         valorRB:='';
+     end
+      else if (valorRB = '') then
+        begin
+            if (valorRA = '') then begin
+              valorRB:= '0';
+              valorX:= StrToFloat(valorRB);
+              valorRA:= valorRB+valorMulti;
+              resultA.Text:=valorRA;
+              valorRB:='';
+              resultB.Text:='0';
+            end
+              else begin
+                valorRB:= valorRA;
+                valorX:= StrToFloat(valorRB);
+                valorRA:= valorRB+valorMulti;
+                resultA.Text:=valorRA;
+                valorRB:='';
+                resultB.Text:='0';
+              end;
+        end
+          else
+            begin
+              valorX:= StrToFloat(valorRB);
+              valorRA:= valorRB+valorMulti;
+              resultA.Text:=valorRA;
+              valorRB:='';
+              resultB.Text:='0';
+            end;
+
+end;
+
+procedure TForm1.buttonPorcetClick(Sender: TObject);
+begin
+  var valorPorce:string:='%';
+
+   if AnsiContainsStr(valorRA, '%') then begin
+        if (valorRB = '') then begin
+          valorRB:= '0';
+       end;
+         valorY:= StrToFloat(valorRB);
+         result:= (ValorY/100)*valorX;
+         resultA.Text := result.ToString;
+         resultB.Text := result.ToString;
+         valorRA:= FloatToStr(result);
+         valorRB:='';
+     end
+      else if (valorRB = '') then
+        begin
+            if (valorRA = '') then begin
+              valorRB:= '0';
+              valorX:= StrToFloat(valorRB);
+              valorRA:= valorRB+valorPorce;
+              resultA.Text:=valorRA;
+              valorRB:='';
+              resultB.Text:='0';
+            end
+              else begin
+                valorRB:= valorRA;
+                valorX:= StrToFloat(valorRB);
+                valorRA:= valorRB+valorPorce;
+                resultA.Text:=valorRA;
+                valorRB:='';
+                resultB.Text:='0';
+              end;
+        end
+          else
+            begin
+              valorX:= StrToFloat(valorRB);
+              valorRA:= valorRB+valorPorce;
+              resultA.Text:=valorRA;
+              valorRB:='';
+              resultB.Text:='0';
+            end;
 end;
 
 procedure TForm1.buttonVirgulaClick(Sender: TObject);
@@ -190,8 +453,28 @@ begin
       resultB.Text:=valorRB;
   end
     else
-      valorRB:=valorRB+valorPonto;
-      resultB.Text := valorRB;
+      begin
+        valorRB:=valorRB+valorPonto;
+        resultB.Text := valorRB;
+      end;
+end;
+
+procedure TForm1.buttonX2Click(Sender: TObject);
+begin
+  var x2:Double;
+  var valorX2:string;
+
+  if (valorRB = '') then begin
+     valorRB:= '0';
+  end;
+
+  x2:=SQR(StrToFloat(valorRB));
+  valorX:=x2;
+  valorX2:='sqr('+valorRB+')';
+  valorRA:=x2.ToString;
+  resultA.Text:=valorX2;
+  valorRB:='';
+  resultB.Text:=x2.ToString;
 
 end;
 

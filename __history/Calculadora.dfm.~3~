@@ -1,0 +1,376 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'Calculadora'
+  ClientHeight = 568
+  ClientWidth = 571
+  Color = 3618615
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -12
+  Font.Name = 'Segoe UI'
+  Font.Style = []
+  TextHeight = 15
+  object buttonDivisao: TButton
+    Left = 416
+    Top = 235
+    Width = 121
+    Height = 49
+    Caption = #247
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 0
+    OnClick = buttonDivisaoClick
+  end
+  object buttonIgual: TButton
+    Left = 416
+    Top = 482
+    Width = 121
+    Height = 49
+    Caption = '='
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 1
+    OnClick = button1Click
+  end
+  object buttonMais: TButton
+    Left = 417
+    Top = 423
+    Width = 121
+    Height = 49
+    Caption = '+'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 2
+    OnClick = buttonMaisClick
+  end
+  object buttonMenos: TButton
+    Left = 417
+    Top = 360
+    Width = 121
+    Height = 49
+    Caption = '-'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 3
+    OnClick = buttonMenosClick
+  end
+  object buttonMulti: TButton
+    Left = 417
+    Top = 300
+    Width = 121
+    Height = 49
+    Caption = #215
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 4
+    OnClick = buttonMultiClick
+  end
+  object button0: TButton
+    Left = 160
+    Top = 482
+    Width = 97
+    Height = 49
+    Caption = '0'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 5
+    OnClick = button0Click
+  end
+  object button1: TButton
+    Left = 40
+    Top = 402
+    Width = 97
+    Height = 49
+    Caption = '1'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 6
+    OnClick = button1Click
+  end
+  object button2: TButton
+    Left = 160
+    Top = 402
+    Width = 97
+    Height = 49
+    Caption = '2'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 7
+    OnClick = button2Click
+  end
+  object button3: TButton
+    Left = 279
+    Top = 402
+    Width = 97
+    Height = 49
+    Caption = '3'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 8
+    OnClick = button3Click
+  end
+  object button4: TButton
+    Left = 40
+    Top = 322
+    Width = 97
+    Height = 49
+    Caption = '4'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 9
+    OnClick = button4Click
+  end
+  object button5: TButton
+    Left = 160
+    Top = 322
+    Width = 97
+    Height = 49
+    Caption = '5'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 10
+    OnClick = Button5Click
+  end
+  object button6: TButton
+    Left = 279
+    Top = 322
+    Width = 97
+    Height = 49
+    Caption = '6'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 11
+    OnClick = Button6Click
+  end
+  object button7: TButton
+    Left = 40
+    Top = 242
+    Width = 97
+    Height = 49
+    Caption = '7'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 12
+    OnClick = button7Click
+  end
+  object button8: TButton
+    Left = 160
+    Top = 242
+    Width = 97
+    Height = 49
+    Caption = '8'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 13
+    OnClick = button8Click
+  end
+  object button9: TButton
+    Left = 279
+    Top = 242
+    Width = 97
+    Height = 49
+    Caption = '9'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 14
+    OnClick = button9Click
+  end
+  object buttonMaisMenos: TButton
+    Left = 40
+    Top = 482
+    Width = 97
+    Height = 49
+    Caption = '+/-'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 15
+    OnClick = buttonMaisMenosClick
+  end
+  object buttonVirgula: TButton
+    Left = 279
+    Top = 482
+    Width = 97
+    Height = 49
+    Caption = ','
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 16
+    OnClick = buttonVirgulaClick
+  end
+  object resultA: TEdit
+    Left = 40
+    Top = 24
+    Width = 498
+    Height = 48
+    Alignment = taRightJustify
+    Enabled = False
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 17
+  end
+  object resultB: TEdit
+    Left = 40
+    Top = 64
+    Width = 498
+    Height = 73
+    Alignment = taRightJustify
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clBlack
+    Font.Height = 65
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ImeMode = imHanguel
+    ParentFont = False
+    TabOrder = 18
+    Text = '0'
+  end
+  object buttonApagar: TButton
+    Left = 415
+    Top = 148
+    Width = 122
+    Height = 51
+    BiDiMode = bdLeftToRight
+    Caption = #8592
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentBiDiMode = False
+    ParentFont = False
+    TabOrder = 19
+  end
+  object buttonC: TButton
+    Left = 310
+    Top = 149
+    Width = 66
+    Height = 49
+    Caption = 'C'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 20
+    OnClick = button1Click
+  end
+  object buttonCE: TButton
+    Left = 221
+    Top = 149
+    Width = 66
+    Height = 49
+    Caption = 'CE'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 21
+    OnClick = button1Click
+  end
+  object buttonPorcet: TButton
+    Left = 40
+    Top = 149
+    Width = 66
+    Height = 49
+    Caption = '%'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 40
+    Font.Name = 'Segoe UI'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 22
+    OnClick = button1Click
+  end
+  object buttonX2: TButton
+    Left = 130
+    Top = 149
+    Width = 72
+    Height = 49
+    Caption = 'x'#178
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = 30
+    Font.Name = 'Times New Roman'
+    Font.Style = [fsBold]
+    ParentFont = False
+    TabOrder = 23
+    OnClick = button1Click
+  end
+end
